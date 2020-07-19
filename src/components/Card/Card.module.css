@@ -7,3 +7,9 @@
   box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
   max-height: 80vh;
 }
+
+@media only screen and (max-width: 43.75em) {
+  .card {
+    padding: 2rem 1rem;
+  }
+}

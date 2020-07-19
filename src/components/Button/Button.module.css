@@ -6,7 +6,6 @@
   cursor: pointer;
   background-color: #fff;
   transition: all 0.2s ease;
-  align-self: flex-end;
   outline: none;
 }
 
@@ -23,4 +22,38 @@
   border-color: #ccc;
   color: #ccc;
   background-color: #fff;
+}
+
+.btn.flex_end {
+  align-self: flex-end;
+}
+
+.btn.flex_start {
+  align-self: flex-start;
+}
+
+.btn.btn_large {
+  padding: 1.2rem 3rem;
+}
+
+.btn.btn_blue {
+  border-color: var(--color-blue-light);
+  color: var(--color-blue-light);
+}
+
+.btn.btn_blue:hover,
+.btn.btn_blue:active {
+  background-color: var(--color-blue-light);
+  color: #fff;
+}
+
+.btn.btn_pink {
+  border-color: var(--color-pink-light);
+  color: var(--color-pink-light);
+}
+
+.btn.btn_pink:hover,
+.btn.btn_pink:active {
+  background-color: var(--color-pink-light);
+  color: #fff;
 }

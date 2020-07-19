@@ -1,6 +1,7 @@
 import React from "react";
 
 import {
+  wrapper,
   skCircle,
   skChild,
   skCircle1,
@@ -19,7 +20,7 @@ import {
 
 const LoadingIndicator = () => {
   return (
-    <>
+    <div className={wrapper}>
       <div className={skCircle}>
         <div className={`${skCircle1} ${skChild}`}></div>
         <div className={`${skCircle2} ${skChild}`}></div>
@@ -34,8 +35,8 @@ const LoadingIndicator = () => {
         <div className={`${skCircle11} ${skChild}`}></div>
         <div className={`${skCircle12} ${skChild}`}></div>
       </div>
-      <p style={{ textAlign: "center" }}>Loading...</p>
-    </>
+      <p style={{ textAlign: "center", fontSize: "1.6rem" }}>Loading...</p>
+    </div>
   );
 };
 

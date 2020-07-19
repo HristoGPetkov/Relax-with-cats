@@ -34,10 +34,14 @@ const Pictures = ({ picsArr, getPictures, isLoading }) => {
   return (
     <div className={pictures}>
       <Card>{output}</Card>
-      <Button disabled={picIdx === 0} clickHandler={prevPic}>
+      <Button large disabled={picIdx === 0} clickHandler={prevPic}>
         Prev
       </Button>
-      <Button clickHandler={nextPic}>
+      <Button
+        large
+        clickHandler={nextPic}
+        btnBlue={picIdx === picsArr.length - 1}
+      >
         {picIdx === picsArr.length - 1 ? "Load More" : "Next"}
       </Button>
     </div>

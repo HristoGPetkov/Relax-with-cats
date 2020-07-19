@@ -10,3 +10,10 @@
   justify-content: flex-end;
   padding: 0 4rem;
 }
+
+@media only screen and (max-width: 43.75em) {
+  .toolbar {
+    height: 4rem;
+    padding: 0 1rem;
+  }
+}

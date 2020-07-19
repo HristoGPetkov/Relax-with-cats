@@ -1,4 +1,45 @@
 .pictures {
-  max-width: 100rem;
+  max-width: 80rem;
   margin: 0 auto;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pictures > div:first-of-type {
+  margin: 0;
+  grid-column: 1 / -1;
+}
+
+.pictures > button:first-of-type {
+  justify-self: start;
+}
+.pictures > button:last-of-type {
+  justify-self: end;
+}
+
+@media only screen and (max-height: 37.5em) {
+  .pictures {
+    max-width: 80rem;
+    margin: 0 auto;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    align-items: center;
+  }
+  .pictures > div:first-of-type {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .pictures > button:first-of-type {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .pictures > button:last-of-type {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
 }

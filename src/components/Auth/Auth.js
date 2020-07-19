@@ -94,7 +94,7 @@ const Auth = (props) => {
           errorMessage="Please enter valid password (at least six symbols)"
           authError={props.authError && props.authError.message}
         />
-        <Button type="submit" disabled={!formValidity}>
+        <Button type="submit" disabled={!formValidity} flexEnd>
           Submit
         </Button>
       </form>

@@ -15,7 +15,7 @@ const Toolbar = ({ isAuth }) => {
       )}
       {isAuth && (
         <Link to="/logout">
-          <Button>Log Out</Button>
+          <Button btnPink>Log Out</Button>
         </Link>
       )}
     </nav>
