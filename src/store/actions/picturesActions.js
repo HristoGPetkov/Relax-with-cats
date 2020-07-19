@@ -7,12 +7,12 @@ export const getPicsSuccess = (pictures) => ({
   type: GET_PICS_SUCCESS,
   pictures,
 });
-export const getPictures = (page = 1, perPage = 10) => async (dispatch) => {
+export const getPictures = (count = 10) => async (dispatch) => {
   dispatch(getPicsInit());
 
   try {
     const response = await fetch(
-      `https://api.unsplash.com/search/photos?query=cat&page=${page}&per_page=${perPage}`,
+      `https://api.unsplash.com/photos/random?query=cat&count=${count}`,
       {
         method: "GET",
         headers: {
@@ -29,11 +29,11 @@ export const getPictures = (page = 1, perPage = 10) => async (dispatch) => {
 
     console.log(result);
 
-    const pictures = result.results.map((item) => {
-      const { description, user } = item;
+    const pictures = result.map((item) => {
+      const { description, alt_description, user } = item;
       const url = item.urls.regular;
 
-      return { url, description, user };
+      return { url, description, alt_description, user };
     });
 
     dispatch(getPicsSuccess(pictures));

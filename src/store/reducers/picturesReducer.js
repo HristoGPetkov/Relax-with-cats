@@ -8,20 +8,18 @@ const initialState = {
   pictures: [],
   error: null,
   loading: false,
-  page: 0,
 };
 
 const picturesReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PICS_INIT:
-      return { ...state, loading: true, error: false };
+      return { ...state, loading: true, error: null };
     case GET_PICS_SUCCESS:
       return {
         ...state,
         error: null,
         loading: false,
         pictures: [...state.pictures, ...action.pictures],
-        page: state.page + 1,
       };
 
     case GET_PICS_FAIL:

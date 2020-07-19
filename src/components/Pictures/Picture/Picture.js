@@ -6,11 +6,11 @@ const Picture = ({ image }) => {
   let output = null;
 
   if (image) {
-    const { description, user, url } = image;
+    const { description, alt_description, user, url } = image;
 
     output = (
       <div className={wrapper}>
-        <img className={img} src={url} alt={description} />
+        <img className={img} src={url} alt={description || alt_description} />
       </div>
     );
   }

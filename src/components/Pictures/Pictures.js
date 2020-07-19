@@ -8,12 +8,12 @@ import Button from "../Button/Button";
 import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
 import { pictures } from "./Pictures.module.css";
 
-const Pictures = ({ picsArr, getPictures, nextPage, isLoading }) => {
+const Pictures = ({ picsArr, getPictures, isLoading }) => {
   const [picIdx, setPicIdx] = useState(0);
 
   const nextPic = () => {
     if (picIdx === picsArr.length - 1) {
-      getPictures(nextPage);
+      getPictures();
     } else {
       setPicIdx((prevIdx) => prevIdx + 1);
     }
@@ -47,7 +47,6 @@ const Pictures = ({ picsArr, getPictures, nextPage, isLoading }) => {
 const mapState = (state) => ({
   isLoading: state.pictures.loading,
   picsArr: state.pictures.pictures,
-  nextPage: state.pictures.page + 1,
 });
 
 const mapDispatch = { getPictures };
