@@ -4,10 +4,12 @@ import { connect } from "react-redux";
 
 import { toolbar } from "./Toolbar.module.css";
 import Button from "../Button/Button";
+import Logo from "../Logo/Logo";
 
 const Toolbar = ({ isAuth }) => {
   return (
     <nav className={toolbar}>
+      <Logo />
       {!isAuth && (
         <Link to="/auth">
           <Button>Log In</Button>

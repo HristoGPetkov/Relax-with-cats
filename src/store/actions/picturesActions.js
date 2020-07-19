@@ -39,6 +39,8 @@ export const getPictures = (count = 10) => async (dispatch) => {
     dispatch(getPicsSuccess(pictures));
 
     console.log(pictures);
+
+    return pictures;
   } catch (error) {
     console.log(error);
     dispatch(getPicsFail(error));

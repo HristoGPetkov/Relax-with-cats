@@ -13,7 +13,7 @@ const Pictures = ({ picsArr, getPictures, isLoading }) => {
 
   const nextPic = () => {
     if (picIdx === picsArr.length - 1) {
-      getPictures();
+      getPictures().then(() => setPicIdx((prevIdx) => prevIdx + 1));
     } else {
       setPicIdx((prevIdx) => prevIdx + 1);
     }
