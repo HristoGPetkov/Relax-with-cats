@@ -21,13 +21,10 @@ export const getPictures = (count = 10) => async (dispatch) => {
         },
       }
     );
-    console.log(response);
 
     const result = await response.json();
 
     if (result.errors) throw new Error(result.errors[0]);
-
-    console.log(result);
 
     const pictures = result.map((item) => {
       const { description, alt_description, user } = item;
@@ -38,11 +35,8 @@ export const getPictures = (count = 10) => async (dispatch) => {
 
     dispatch(getPicsSuccess(pictures));
 
-    console.log(pictures);
-
     return pictures;
   } catch (error) {
-    console.log(error);
     dispatch(getPicsFail(error));
   }
 };

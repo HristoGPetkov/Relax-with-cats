@@ -13,6 +13,17 @@
   border-radius: 10px;
 }
 
+.attribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.attribution a {
+  color: #000;
+  font-weight: 400;
+}
+
 @media only screen and (max-width: 31.25em) {
   .wrapper {
     width: 55rem;
