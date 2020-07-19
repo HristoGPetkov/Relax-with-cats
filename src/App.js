@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-function App() {
+import { checkAuth, getPictures } from "./store/actions";
+import Auth from "./components/Auth/Auth";
+import LogOut from "./components/Auth/LogOut/LogOut";
+import Layout from "./components/Layout/Layout";
+import Pictures from "./components/Pictures/Pictures";
+
+function App({ isAuth, checkAuth, getPictures }) {
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
+  useEffect(() => {
+    if (isAuth) getPictures();
+  }, [getPictures, isAuth]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Switch>
+        {!isAuth && (
+          <>
+            <Route path="/auth">
+              <Auth />
+            </Route>
+            <Redirect to="/auth" />
+          </>
+        )}
+        {isAuth && (
+          <>
+            <Route path="/logout">
+              <LogOut />
+            </Route>
+            <Route exact={true} path="/">
+              <Pictures />
+            </Route>
+            <Redirect to="/" />
+          </>
+        )}
+      </Switch>
+    </Layout>
   );
 }
+const mapState = (state) => ({
+  isAuth: state.auth.id && state.auth.token,
+});
 
-export default App;
+const mapDispatch = { checkAuth, getPictures };
+
+export default connect(mapState, mapDispatch)(App);
