@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { getPictures } from "../../store/actions";
 import Card from "../Card/Card";
 import Picture from "./Picture/Picture";
 import Button from "../Button/Button";
 import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
+import ErrorMsg from "./ErrorMsg/ErrorMgs";
 import { pictures } from "./Pictures.module.css";
+import { getPictures } from "../../store/actions";
 
-const Pictures = ({ picsArr, getPictures, isLoading }) => {
+const Pictures = ({ picsArr, getPictures, isLoading, error }) => {
   const [picIdx, setPicIdx] = useState(0);
 
   const nextPic = () => {
     if (picIdx === picsArr.length - 1) {
-      getPictures().then(() => setPicIdx((prevIdx) => prevIdx + 1));
+      getPictures(20).then(() => setPicIdx((prevIdx) => prevIdx + 1));
     } else {
       setPicIdx((prevIdx) => prevIdx + 1);
     }
@@ -25,11 +26,13 @@ const Pictures = ({ picsArr, getPictures, isLoading }) => {
     setPicIdx((prevIdx) => prevIdx - 1);
   };
 
-  let output = isLoading ? (
-    <LoadingIndicator />
+  let pictureComp = error ? (
+    <ErrorMsg message={error.message} />
   ) : (
     <Picture image={picsArr[picIdx]} />
   );
+
+  let output = isLoading ? <LoadingIndicator /> : pictureComp;
 
   return (
     <div className={pictures}>
@@ -51,6 +54,7 @@ const Pictures = ({ picsArr, getPictures, isLoading }) => {
 const mapState = (state) => ({
   isLoading: state.pictures.loading,
   picsArr: state.pictures.pictures,
+  error: state.pictures.error,
 });
 
 const mapDispatch = { getPictures };

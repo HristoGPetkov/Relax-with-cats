@@ -1,7 +1,8 @@
 import React from "react";
 
+import Wrapper from "../Card/Wrapper/Wrapper";
+
 import {
-  wrapper,
   skCircle,
   skChild,
   skCircle1,
@@ -20,7 +21,7 @@ import {
 
 const LoadingIndicator = () => {
   return (
-    <div className={wrapper}>
+    <Wrapper flexColumn>
       <div className={skCircle}>
         <div className={`${skCircle1} ${skChild}`}></div>
         <div className={`${skCircle2} ${skChild}`}></div>
@@ -36,7 +37,7 @@ const LoadingIndicator = () => {
         <div className={`${skCircle12} ${skChild}`}></div>
       </div>
       <p style={{ textAlign: "center", fontSize: "1.6rem" }}>Loading...</p>
-    </div>
+    </Wrapper>
   );
 };
 

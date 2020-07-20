@@ -1,6 +1,7 @@
 import React from "react";
 
-import { img, wrapper, attribution } from "./Picture.module.css";
+import Wrapper from "../../Card/Wrapper/Wrapper";
+import { img, attribution } from "./Picture.module.css";
 
 const Picture = ({ image }) => {
   let output = null;
@@ -10,9 +11,10 @@ const Picture = ({ image }) => {
 
     output = (
       <>
-        <div className={wrapper}>
+        <Wrapper>
           <img className={img} src={url} alt={description || alt_description} />
-        </div>
+        </Wrapper>
+
         <p className={attribution}>
           Photo by
           <a

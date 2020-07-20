@@ -19,6 +19,13 @@
   justify-self: end;
 }
 
+@media only screen and (max-width: 40.625em) {
+  .pictures > button:first-of-type,
+  .pictures > button:last-of-type {
+    justify-self: center;
+  }
+}
+
 @media only screen and (max-height: 37.5em) {
   .pictures {
     max-width: 80rem;

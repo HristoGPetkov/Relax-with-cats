@@ -71,7 +71,7 @@ const Auth = (props) => {
         <h1>
           {isSingUp
             ? "Already have an account? Switch to:"
-            : "Don't have an accont? Switch to:"}
+            : "Don't have an account? Switch to:"}
         </h1>
         <Button clickHandler={() => toggleSingUp((prevValue) => !prevValue)}>
           {isSingUp ? "Sign In" : "Sign Up"}

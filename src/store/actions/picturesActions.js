@@ -7,7 +7,7 @@ export const getPicsSuccess = (pictures) => ({
   type: GET_PICS_SUCCESS,
   pictures,
 });
-export const getPictures = (count = 10) => async (dispatch) => {
+export const getPictures = (count = 20) => async (dispatch) => {
   dispatch(getPicsInit());
 
   try {
@@ -22,7 +22,11 @@ export const getPictures = (count = 10) => async (dispatch) => {
       }
     );
 
+    console.log(response);
+
     const result = await response.json();
+
+    console.log(result);
 
     if (result.errors) throw new Error(result.errors[0]);
 
@@ -37,6 +41,7 @@ export const getPictures = (count = 10) => async (dispatch) => {
 
     return pictures;
   } catch (error) {
+    console.log(error);
     dispatch(getPicsFail(error));
   }
 };
